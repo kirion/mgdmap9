@@ -10,6 +10,8 @@ gem 'bootstrap-will_paginate', '>= 0.0.6'
 
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'json', '1.8.0'
+gem 'heroku'
 
 group :development do
   gem 'sqlite3'
@@ -32,6 +34,7 @@ gem 'jquery-rails'
 
 group :production do
   gem 'pg', '>=0.12.2'
+  gem 'rails_12factor'
 end
 
 
