@@ -11,13 +11,13 @@ class MapController < ApplicationController
                         Жильцов: <b>#{house.n_occupants}</b><br>
                         Ключ: <b>#{house.key}</b><br></p>"
       if house.n_occupants < 4000              
-          marker.picture({:url => "/public/assets/24p-green-home-icon.png", :width => 24, :height => 24 })
+          marker.picture({:url => "assets/24p-green-home-icon.png", :width => 24, :height => 24 })
       end
       if house.n_occupants >= 4000 && house.n_occupants <= 10000
-          marker.picture({:url => "/public/assets/24p-blue-home-icon.png", :width => 24, :height => 24 })
+          marker.picture({:url => "assets/24p-blue-home-icon.png", :width => 24, :height => 24 })
       end          
       if house.n_occupants > 10000
-          marker.picture({:url => "/public/assets/24p-red-home-icon.png", :width => 24, :height => 24 })
+          marker.picture({:url => "assets/24p-red-home-icon.png", :width => 24, :height => 24 })
       end
       marker.title   "#{house.name}"
     end  
