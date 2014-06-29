@@ -1,12 +1,20 @@
 ---
 24p-blue-home-icon.png: 24p-blue-home-icon-fe8afd0326da7eed722ab44c4de3b65a.png
 24p-blue-home-icon/index.png: 24p-blue-home-icon-fe8afd0326da7eed722ab44c4de3b65a.png
+24p-green-home-icon.png: 24p-green-home-icon-328c410b7a6d907739fbd1abfaa00bff.png
+24p-green-home-icon/index.png: 24p-green-home-icon-328c410b7a6d907739fbd1abfaa00bff.png
+24p-red-home-icon.png: 24p-red-home-icon-7f5edf04ecb8d1a3c6c4d763320c2160.png
+24p-red-home-icon/index.png: 24p-red-home-icon-7f5edf04ecb8d1a3c6c4d763320c2160.png
+24p-user-coat-blue-icon.png: 24p-user-coat-blue-icon-0a4bea459239bb63e2c51e2168bb3029.png
+24p-user-coat-blue-icon/index.png: 24p-user-coat-blue-icon-0a4bea459239bb63e2c51e2168bb3029.png
+24p-user-coat-red-icon.png: 24p-user-coat-red-icon-35101a40ec5d39949f2a84f8f4e07943.png
+24p-user-coat-red-icon/index.png: 24p-user-coat-red-icon-35101a40ec5d39949f2a84f8f4e07943.png
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
-application.js: application-46806fda45337b21cf2cdbfea02c59a2.js
-application/index.js: application-46806fda45337b21cf2cdbfea02c59a2.js
-application.css: application-31b334764c79dbfc4c7183a5c9b3f304.css
-application/index.css: application-31b334764c79dbfc4c7183a5c9b3f304.css
+application.js: application-a028d3365c7d5707c27af01cd634e3ee.js
+application/index.js: application-a028d3365c7d5707c27af01cd634e3ee.js
+application.css: application-1327c8ea3549258f5e79fd01476ebec9.css
+application/index.css: application-1327c8ea3549258f5e79fd01476ebec9.css
 jquery.min.map: jquery.min-388372ef65cc311f6a3df4a6ceac8d22.map
 jquery/index.min.map: jquery.min-388372ef65cc311f6a3df4a6ceac8d22.map
 bootstrap/glyphicons-halflings-regular.eot: bootstrap/glyphicons-halflings-regular-34c3e2fce2eed3de1bb998bae0e4e0de.eot
