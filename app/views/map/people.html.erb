@@ -1,9 +1,11 @@
 
+<% if signed_in? %>
 <div class="container-fluid">
 	<div class="row">
-		<div id="multi_markers" style='width: 100%; height: 800px;'></div>
+		<div id="multi_markers" style='width: 100%; height: 700px;'></div>
 	</div>
 </div>
+<% end %>
 
 <script language="javascript">
 	
@@ -24,7 +26,7 @@ handler.buildMap({
 
     
   function(){  
-  	var markers = handler.addMarkers(<%=raw @gmaphash.to_json %>);
+  	var markers = handler.addMarkers(<%=raw @gmappeople.to_json %>);
   	
   	var beskudnikovo = handler.addPolygons(
   		[

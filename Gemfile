@@ -12,6 +12,7 @@ gem 'gmaps4rails'
 gem 'geocoder'
 gem 'json', '1.8.0'
 gem 'heroku'
+gem 'bcrypt-ruby'
 
 group :development do
   gem 'sqlite3'

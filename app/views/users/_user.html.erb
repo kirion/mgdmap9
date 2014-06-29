@@ -1,0 +1,11 @@
+<li>
+  <%= link_to user.name, user %>
+  <% if current_user.admin? && !current_user?(user) %>
+  <div class="btn-group pull-right">
+  <%= link_to "delete", user, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"  %>
+  <%= link_to "modify", user, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary"  %>
+  </div>
+  <% end %>
+</li>
+
+

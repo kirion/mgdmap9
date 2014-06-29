@@ -4,14 +4,26 @@
 <header class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="navbar-inner">
     <div class="container-fluid">
-    		
-      <nav>
-      <h2><b>Москва. Избирательный округ №9</b></h2>
-   <!--  	<ul class="nav pull-right nav-pills"> */
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Map", root_path %></li>
-        </ul>-->
-      </nav>
-    </div>
+    	<div class="row">
+  			<div class="col-md-4">
+  			<% if signed_in? %>	
+  				<h2><b>Москва. Округ №9</b></h2>	
+  			<% else %>
+        		<h2><%= link_to "Welcome!", signin_path %></h2>
+      		<% end %>	
+  			</div>
+  			<div class="col-md-8">
+  			<% if signed_in? %>	
+		      <nav>
+    			<ul class="nav pull-right nav-pills mtop">
+          			<li><%= link_to "Карта волонтеров", map1_path, class: "btn btn-info" %></li>
+          			<li><%= link_to "Карта домов", map2_path, class: "btn btn-info" %></li>
+          			<li><%= link_to "Выход", signout_path, method: "delete", class: "btn btn-primary" %></li>
+        		</ul>
+      		  </nav>
+      		  <% end %>	
+    		</div>
+       	</div>
+  	</div>
   </div>
 </header>

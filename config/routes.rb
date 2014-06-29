@@ -1,6 +1,15 @@
 Mgdmap9::Application.routes.draw do
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
    
-  root to: 'map#home'
+  root to: 'static#home'
+
+  match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+  match '/map1', to: 'map#people'
+  match '/map2', to: 'map#houses'
+
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
