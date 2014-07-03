@@ -16,8 +16,8 @@
   			<% if signed_in? %>	
 		      <nav>
     			<ul class="nav pull-right nav-pills mtop">
-          			<li><%= link_to "Карта волонтеров", map1_path, class: "btn btn-info" %></li>
-          			<li><%= link_to "Карта домов", map2_path, class: "btn btn-info" %></li>
+          			<li><%= link_to "На главную", root_path, class: "btn btn-info" %></li>
+          			<li><%= link_to "Карта", map_path, class: "btn btn-info" %></li>
           			<li><%= link_to "Выход", signout_path, method: "delete", class: "btn btn-primary" %></li>
         		</ul>
       		  </nav>

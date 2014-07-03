@@ -7,8 +7,7 @@ Mgdmap9::Application.routes.draw do
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
-  match '/map1', to: 'map#people'
-  match '/map2', to: 'map#houses'
+  match '/map', to: 'map#map'
 
   
   # The priority is based upon order of creation:
