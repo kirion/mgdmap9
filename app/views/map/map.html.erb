@@ -9,6 +9,12 @@
     		<label>
     			<input type="checkbox" id="peoplebox"> Волонтеры
     		</label>
+    	    <label>
+    			<input type="checkbox" id="cubebox"> Кубы
+    		</label>
+    		<label>
+    			<input type="checkbox" id="dvorbox"> Встречи во дворах
+    		</label>
 		</div>
 
 		<div id="multi_markers" style='width: 100%; height: 700px;'></div>
@@ -39,6 +45,9 @@
 	  	
 	  	var people = handler.addMarkers(<%=raw @gmappeople.to_json %>, {visible: true});
 	  	var houses = handler.addMarkers(<%=raw @gmaphouses.to_json %>, {visible: false});
+	  	var cubes = handler.addMarkers(<%=raw @gmapcubes.to_json %>, {visible: false});
+	  	var dvors = handler.addMarkers(<%=raw @gmapdvor.to_json %>, {visible: false});
+	  	
 	  	
 	  	var beskudnikovo = handler.addPolygons(
 	  		[
@@ -165,16 +174,21 @@
            boxclick(document.getElementById('housesbox'), houses);
         });
 		
-		
+		google.maps.event.addDomListener(document.getElementById('cubebox'), 'click', function(){
+           boxclick(document.getElementById('cubebox'), cubes);
+        });
+
+		google.maps.event.addDomListener(document.getElementById('dvorbox'), 'click', function(){
+           boxclick(document.getElementById('dvorbox'), dvors);
+        });
+        		
 		});
 		
 			// == shows all markers of a particular category, and ensures the checkbox is checked ==
 		function show(data) {
 		  for (var i = 0; i < data.length; i++ ){
 			data[i].show(); 
-		  }
-		  
-		  
+		  }		  
 		}
 		
 		// == hides all markers of a particular category, and ensures the checkbox is cleared ==

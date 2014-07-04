@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2014-07-04 22:20:36
+  name: MyString
+  event_typee: MyString
+  event_id: 1
+  address: MyString
+  city: MyString
+  country: MyString
+  longitude: 1.5
+  latitude: 1.5
+
+two:
+  date: 2014-07-04 22:20:36
+  name: MyString
+  event_typee: MyString
+  event_id: 1
+  address: MyString
+  city: MyString
+  country: MyString
+  longitude: 1.5
+  latitude: 1.5

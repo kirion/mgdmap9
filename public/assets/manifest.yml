@@ -1,4 +1,8 @@
 ---
+24p-48-user-coat-blue-icon.png: 24p-48-user-coat-blue-icon-b50ce1e6abb15121aa9f000f00ddd663.png
+24p-48-user-coat-blue-icon/index.png: 24p-48-user-coat-blue-icon-b50ce1e6abb15121aa9f000f00ddd663.png
+24p-48-user-coat-red-icon.png: 24p-48-user-coat-red-icon-8754285e544fe7f82f22de3a2de28939.png
+24p-48-user-coat-red-icon/index.png: 24p-48-user-coat-red-icon-8754285e544fe7f82f22de3a2de28939.png
 24p-blue-home-icon.png: 24p-blue-home-icon-fe8afd0326da7eed722ab44c4de3b65a.png
 24p-blue-home-icon/index.png: 24p-blue-home-icon-fe8afd0326da7eed722ab44c4de3b65a.png
 24p-green-home-icon.png: 24p-green-home-icon-328c410b7a6d907739fbd1abfaa00bff.png
@@ -9,6 +13,16 @@
 24p-user-coat-blue-icon/index.png: 24p-user-coat-blue-icon-0a4bea459239bb63e2c51e2168bb3029.png
 24p-user-coat-red-icon.png: 24p-user-coat-red-icon-35101a40ec5d39949f2a84f8f4e07943.png
 24p-user-coat-red-icon/index.png: 24p-user-coat-red-icon-35101a40ec5d39949f2a84f8f4e07943.png
+32p-comments-blue-icon.png: 32p-comments-blue-icon-e96c3033be33eefc8abe5deeb202fd9c.png
+32p-comments-blue-icon/index.png: 32p-comments-blue-icon-e96c3033be33eefc8abe5deeb202fd9c.png
+32p-comments-icon.png: 32p-comments-icon-9134c39d1936b112e3e37a5241a2b4de.png
+32p-comments-icon/index.png: 32p-comments-icon-9134c39d1936b112e3e37a5241a2b4de.png
+32p-cube-icon.png: 32p-cube-icon-ef87be9f71e7de87da453f29aa241a57.png
+32p-cube-icon/index.png: 32p-cube-icon-ef87be9f71e7de87da453f29aa241a57.png
+32p-mag-blue-icon.png: 32p-mag-blue-icon-54b5b12cf2f576e7dfc9a7248f518a1c.png
+32p-mag-blue-icon/index.png: 32p-mag-blue-icon-54b5b12cf2f576e7dfc9a7248f518a1c.png
+32p-mag-icon.png: 32p-mag-icon-9ea9949522db30e9ff7fd45b1249ad84.png
+32p-mag-icon/index.png: 32p-mag-icon-9ea9949522db30e9ff7fd45b1249ad84.png
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 application.js: application-a028d3365c7d5707c27af01cd634e3ee.js
