@@ -1,5 +1,5 @@
 class Events < ActiveRecord::Base
-  attr_accessible :address, :city, :country, :date, :event_id, :event_type, :latitude, :longitude, :name
+  attr_accessible :address, :city, :country, :date, :event_id, :event_type, :latitude, :longitude, :name, :ItemCount, :Actor
   
    def full_address
     [address, city, country].compact.join(', ')

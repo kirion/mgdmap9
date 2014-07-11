@@ -40,7 +40,7 @@ class MapController < ApplicationController
         marker.json({cat: person.p_type})
       end  
       
-      @events_cube = Events.find_by_event_type("Куб")
+      @events_cube = Events.all(:conditions => ["event_type == ?", "Куб"])
       @gmapcubes = Gmaps4rails.build_markers(@events_cube) do |event, marker|
         marker.lat event.latitude
         marker.lng event.longitude
@@ -52,7 +52,7 @@ class MapController < ApplicationController
         marker.json({cat: event.event_type})
       end  
       
-      @events_dvor = Events.find_by_event_type("Встреча во дворе")
+      @events_dvor = Events.all(:conditions => ["event_type == ?", "Встреча во дворе"])
       @gmapdvor = Gmaps4rails.build_markers(@events_dvor) do |event, marker|
         marker.lat event.latitude
         marker.lng event.longitude
@@ -62,6 +62,29 @@ class MapController < ApplicationController
         marker.picture({:url => "assets/32p-comments-blue-icon.png", :width => 32, :height => 32 })
         marker.title   "#{event.name}"
         marker.json({cat: event.event_type})
-      end        
+      end    
+      
+      @events_dom_list = Events.all(:conditions => ["event_type == ?", "Дом-листовки"])
+      @gmapdomlist = Gmaps4rails.build_markers(@events_dom_list) do |event, marker|
+        marker.lat event.latitude
+        marker.lng event.longitude
+        n_flats = House.find_by_address(event.address).n_flats
+        marker.infowindow "<p><b>#{event.name}</b><br>
+                          Отв.: <b>#{event.Actor}</b><br>
+                          Волна: <b>#{event.event_id}</b><br>
+                          Кол-во листовок: <b>#{event.ItemCount}</b><br>
+                          Кол-во квартир: <b>#{n_flats}</b><br>
+                          Время проведения: <b>#{event.date}</b><br>
+                          Место проведения <b>#{event.address}</b></p>"           
+        if event.ItemCount / n_flats == 1              
+            marker.picture({:url => "assets/24p-green-home-icon.png", :width => 24, :height => 24 })
+        end
+        if event.ItemCount / n_flats < 1   
+            marker.picture({:url => "assets/24p-red-home-icon.png", :width => 24, :height => 24 })
+        end      
+
+        marker.title   "#{event.name}"
+        marker.json({cat: event.event_type})
+      end    
   end
 end

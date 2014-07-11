@@ -45,11 +45,15 @@
 	    }, function(){
 	  	document.getElementById('peoplebox').checked = true;
 	  	document.getElementById('housesbox').checked = false;
+	    document.getElementById('cubebox').checked = true;
+	  	document.getElementById('dvorbox').checked = false;
+	  	document.getElementById('houseagitbox').checked = false;
 	  	
 	  	var people = handler.addMarkers(<%=raw @gmappeople.to_json %>, {visible: true});
 	  	var houses = handler.addMarkers(<%=raw @gmaphouses.to_json %>, {visible: false});
 	  	var cubes = handler.addMarkers(<%=raw @gmapcubes.to_json %>, {visible: false});
 	  	var dvors = handler.addMarkers(<%=raw @gmapdvor.to_json %>, {visible: false});
+	  	var dom_list = handler.addMarkers(<%=raw @gmapdomlist.to_json %>, {visible: false});
 	  	
 	  	
 	  	var beskudnikovo = handler.addPolygons(
@@ -160,8 +164,8 @@
 	    	{ strokeColor: '#0F8A97', strokeWeight: 2, fillColor: "#0F8A97", fillOpacity: 0.10}
 	  	);		
 	  	
-	  	handler.bounds.extendWith(people);
-	  	handler.bounds.extendWith(houses);
+	//  	handler.bounds.extendWith(people);
+	//  	handler.bounds.extendWith(houses);
 	  	handler.bounds.extendWith(beskudnikovo);
 	  	handler.bounds.extendWith(timiryazevsky);
 	  	handler.bounds.extendWith(savelovsky);
@@ -184,7 +188,10 @@
 		google.maps.event.addDomListener(document.getElementById('dvorbox'), 'click', function(){
            boxclick(document.getElementById('dvorbox'), dvors);
         });
-        		
+        
+		google.maps.event.addDomListener(document.getElementById('houseagitbox'), 'click', function(){
+           boxclick(document.getElementById('houseagitbox'), dom_list);
+        });        		
 		});
 		
 			// == shows all markers of a particular category, and ensures the checkbox is checked ==
