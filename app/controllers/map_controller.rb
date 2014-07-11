@@ -40,7 +40,7 @@ class MapController < ApplicationController
         marker.json({cat: person.p_type})
       end  
       
-      @events_cube = Events.all(:conditions => ["event_type == ?", "Куб"])
+      @events_cube = Events.all(:conditions => ["event_type = ?", "Куб"])
       @gmapcubes = Gmaps4rails.build_markers(@events_cube) do |event, marker|
         marker.lat event.latitude
         marker.lng event.longitude
@@ -52,7 +52,7 @@ class MapController < ApplicationController
         marker.json({cat: event.event_type})
       end  
       
-      @events_dvor = Events.all(:conditions => ["event_type == ?", "Встреча во дворе"])
+      @events_dvor = Events.all(:conditions => ["event_type = ?", "Встреча во дворе"])
       @gmapdvor = Gmaps4rails.build_markers(@events_dvor) do |event, marker|
         marker.lat event.latitude
         marker.lng event.longitude
@@ -64,7 +64,7 @@ class MapController < ApplicationController
         marker.json({cat: event.event_type})
       end    
       
-      @events_dom_list = Events.all(:conditions => ["event_type == ?", "Дом-листовки"])
+      @events_dom_list = Events.all(:conditions => ["event_type = ?", "Дом-листовки"])
       @gmapdomlist = Gmaps4rails.build_markers(@events_dom_list) do |event, marker|
         marker.lat event.latitude
         marker.lng event.longitude
