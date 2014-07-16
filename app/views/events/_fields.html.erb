@@ -1,0 +1,29 @@
+Обязательные:
+<br>
+<%= f.label :name, "Имя события" %>
+<%= f.text_field :name %>
+<br>
+<%= f.label :event_id, "Номер события" %>
+<%= f.text_field :event_id %> Используйте в этом поле: <b>1, 2, 3</b> - служит для указания "волны"
+<br>
+<%= f.label :address, "Адрес события" %>
+<%= f.text_field :address %>
+<br>
+<%= f.label :event_type, "Тип события" %>
+<%= f.text_field :event_type %> Используйте в этом поле: <b>Куб, Дом-листовки, Встреча во дворе</b>
+<br>
+<%= f.label :date, "Дата и время начала" %>
+<%= f.text_field :date %> Указывайте дату и время в формате: <b>2014-07-13 10:00:00</b>
+<br>
+<br>
+Дополнительные:
+<br>
+<%= f.label :ItemCount, "Количество розданных материалов" %>
+<%= f.text_field :ItemCount %> Указывайте в этом поле число
+<br>
+<%= f.label :Actor, "Ответственный за событие" %>
+<%= f.text_field :Actor %> Указывайте в этом поле ФИО или просто фамилию
+<br>
+<%= f.hidden_field :city, :value => "Москва" %>
+<%= f.hidden_field :country, :value => "Россия" %>
+<br>

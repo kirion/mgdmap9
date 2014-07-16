@@ -1,3 +1,7 @@
 <div class="events">
-	<% @events %>
+	<% @events.each do |f| %>
+	   Наименование: <%= f.name %> <%= f.event_id %> | <%= link_to "Просмотреть информацию о событии", root_path %> <br>
+	   Тип мероприятия: <%= f.event_type %> <br>
+	   Дата и время: <%= f.date %> <br/><hr/>
+	<% end %>
 </div> 

@@ -21,7 +21,11 @@ class House < ActiveRecord::Base
     address_changed?
   end
   
-   def self.search(search)
+  def events
+    Event.find_all_by_address(self.address)
+  end
+  
+  def self.search(search)
     if search
       find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
     else

@@ -1,11 +1,11 @@
 class HousesController < ApplicationController
   def show
-    @house = House.find(params[:id])
-    @events = Events.find_all_by_address(@house.address)
+    @house = House.find(params[:id])   
+    @events = @house.events
   end
   
   def index
-    @houses = House.paginate(page: params[:page])
+    @houses = House.paginate(page: params[:page]).search(params[:search])
   end
 
   def new

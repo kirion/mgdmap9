@@ -1,0 +1,6 @@
+	<li>
+		<b><%= link_to event.name, event_path(event) %> - <%= event.event_id %> - <%= event.event_type %> </b>
+		| <%= link_to "Изменить", edit_event_path(event) %>
+		| <%= link_to "Удалить", event_path(event), method: :delete, data: { confirm: "Вы уверены?" } %> 
+	</li>
+

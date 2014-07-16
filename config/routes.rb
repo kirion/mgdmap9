@@ -1,5 +1,5 @@
 Mgdmap9::Application.routes.draw do
-  resources :users, :houses
+  resources :users, :houses, :events
   resources :sessions, only: [:new, :create, :destroy]
    
   root to: 'static#home'
