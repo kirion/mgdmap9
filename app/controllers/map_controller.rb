@@ -10,7 +10,7 @@ class MapController < ApplicationController
                         Квартир: <b>#{house.n_flats}</b><br>
                         Ключ: <b>#{house.key}</b><br></p>"
                         
-        if house.n_flats < 100              
+        if house.n_flats < 100
             marker.picture({:url => "assets/24p-green-home-icon.png", :width => 24, :height => 24 })
         end
         if house.n_flats >= 100 && house.n_flats <= 200

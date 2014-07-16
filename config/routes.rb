@@ -1,5 +1,5 @@
 Mgdmap9::Application.routes.draw do
-  resources :users
+  resources :users, :houses
   resources :sessions, only: [:new, :create, :destroy]
    
   root to: 'static#home'
@@ -8,6 +8,7 @@ Mgdmap9::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/map', to: 'map#map'
+  match '/database', to: 'database#index'
 
   
   # The priority is based upon order of creation:

@@ -1,0 +1,23 @@
+
+<div class="container-fluid">
+	 <div class="jumbotron">
+		
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@house) do |f| %>
+      <%= render 'shared/error_messages', object: f.object%>
+      <%= render 'fields', f: f %>
+      <br>
+      <p>Следующие поля изменяются или заполняются вручную, только в случае ошибки автоматического определения широты и долготы!</p>
+      <%= f.label :longitude, "Широта (пример, 37.555694)" %>
+	  <%= f.text_field :longitude %>
+	  <br>
+	  <%= f.label :latitude, "Долгота (пример, 55.801239)" %>
+	  <%= f.text_field :latitude %>
+      <br>
+      <%= f.submit "Сохранить изменения", class: "btn btn-lg btn-primary" %>
+    <% end %>
+  </div>
+</div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<%= f.label :name, "Имя дома" %>
+<%= f.text_field :name %>
+<br>
+<%= f.label :address, "Адрес дома" %>
+<%= f.text_field :address %>
+<br>
+<%= f.label :n_floors, "Кол-во этажей" %>
+<%= f.text_field :n_floors %>
+<br>
+<%= f.label :n_flats, "Кол-во квартир" %>
+<%= f.text_field :n_flats %>
+<br>
+<%= f.label :n_porches, "Кол-во подъездов" %>
+<%= f.text_field :n_porches %>
+<br>
+<%= f.label :key, "Наличие ключа" %>
+<%= f.text_field :key %>
+<br>
+<%= f.label :code, "Коды подъездов" %>
+<%= f.text_field :code %>
+<br>
+<%= f.hidden_field :city, :value => "Москва" %>
+<%= f.hidden_field :country, :value => "Россия" %>

@@ -1,0 +1,6 @@
+	<li>
+		<b><%= link_to house.name, house_path(house) %></b>
+		| <%= link_to "Изменить", edit_house_path(house) %>
+		| <%= link_to "Удалить", house_path(house), method: :delete, data: { confirm: "Вы уверены?" } %> 
+	</li>
+
