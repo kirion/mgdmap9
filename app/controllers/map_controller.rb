@@ -69,7 +69,7 @@ class MapController < ApplicationController
         marker.lat house.latitude
         marker.lng house.longitude
         marker.picture({:url => "assets/24p-gray-home-icon.png", :width => 24, :height => 24 })
-        marker.infowindow "<p><b>Пока событий не было</b><br></p>"  
+        marker.infowindow "<p><b><a href=#{new_event_path}>Добавить новое событие</a>. Пока событий не было</b><br></p>"  
         marker.title   "#{house.name}"
         marker.json({cat: "House"})
         
