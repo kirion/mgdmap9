@@ -76,8 +76,8 @@ class MapController < ApplicationController
         
         @events_dom_list.map.each do |event|
           if house.address == event.address
-            if house.n_flats.nil?
-                   marker.picture({:url => "assets/24p-red-home-icon.png", :width => 24, :height => 24 })
+            if [house.n_flats, event.ItemCount].any?(&:nil?)
+              marker.picture({:url => "assets/24p-red-home-icon.png", :width => 24, :height => 24 })
             else
               if event.ItemCount / house.n_flats.to_f >= 1              
                   marker.picture({:url => "assets/24p-violet-home-icon.png", :width => 24, :height => 24 })
