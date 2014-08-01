@@ -76,17 +76,23 @@ class MapController < ApplicationController
         
         @events_dom_list.map.each do |event|
           if house.address == event.address
-            if event.ItemCount / house.n_flats.to_f >= 1              
-                marker.picture({:url => "assets/24p-violet-home-icon.png", :width => 24, :height => 24 })
+            if house.n_flats.nil?
+                   marker.picture({:url => "assets/24p-red-home-icon.png", :width => 24, :height => 24 })
+            else
+              if event.ItemCount / house.n_flats.to_f >= 1              
+                  marker.picture({:url => "assets/24p-violet-home-icon.png", :width => 24, :height => 24 })
+              end
+              if event.ItemCount / house.n_flats.to_f < 1   
+                  if event.ItemCount / house.n_flats.to_f > 0.15
+                    marker.picture({:url => "assets/24p-yellow-home-icon.png", :width => 24, :height => 24 })
+                  end
+              end      
+              if event.ItemCount / house.n_flats.to_f <= 0.15   
+                  marker.picture({:url => "assets/24p-gray-home-icon.png", :width => 24, :height => 24 })
+              end              
             end
-            if event.ItemCount / house.n_flats.to_f < 1   
-                if event.ItemCount / house.n_flats.to_f > 0.15
-                  marker.picture({:url => "assets/24p-yellow-home-icon.png", :width => 24, :height => 24 })
-                end
-            end      
-            if event.ItemCount / house.n_flats.to_f <= 0.15   
-                marker.picture({:url => "assets/24p-gray-home-icon.png", :width => 24, :height => 24 })
-            end  
+            
+
             
             marker.infowindow "<p><b>#{event.name}</b><br>
                             Отв.: <b>#{event.Actor}</b><br>
