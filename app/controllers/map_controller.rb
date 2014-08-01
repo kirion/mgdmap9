@@ -101,7 +101,7 @@ class MapController < ApplicationController
                             Кол-во квартир: <b>#{house.n_flats}</b><br>
                             Время проведения: <b>#{event.date}</b><br>
                             Место проведения <b>#{event.address}</b><br>
-                            <a href=#{event_path}>Редактировать</a></p>"   
+                            <a href=#{edit_event_path(event.id)}>Редактировать</a></p>"   
             
             marker.title   "#{event.name}"
             marker.json({cat: event.event_type})
