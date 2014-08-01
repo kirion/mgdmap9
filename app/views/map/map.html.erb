@@ -47,13 +47,13 @@
 	  	document.getElementById('housesbox').checked = false;
 	    document.getElementById('cubebox').checked = true;
 	  	document.getElementById('dvorbox').checked = false;
-	  	document.getElementById('houseagitbox').checked = false;
+	  	document.getElementById('houseagitbox').checked = true;
 	  	
 	  	var people = handler.addMarkers(<%=raw @gmappeople.to_json %>, {visible: false});
 	  	var houses = handler.addMarkers(<%=raw @gmaphouses.to_json %>, {visible: false});
 	  	var cubes = handler.addMarkers(<%=raw @gmapcubes.to_json %>, {visible: true});
 	  	var dvors = handler.addMarkers(<%=raw @gmapdvor.to_json %>, {visible: false});
-	  	var dom_list = handler.addMarkers(<%=raw @gmapdomlist.to_json %>, {visible: false});
+	  	var dom_list = handler.addMarkers(<%=raw @gmapdomlist.to_json %>, {visible: true});
 	  	
 	  	
 	  	var beskudnikovo = handler.addPolygons(
