@@ -64,17 +64,20 @@ class MapController < ApplicationController
         marker.json({cat: event.event_type})
       end    
       
-        @events_dom_list = Event.all(:conditions => ["event_type = ?", "Дом-листовки"])
+        @events_dom_list = Event.all(:conditions => ["event_type = ? and event_id = ?", "Дом-листовки", 1])
+        @events_dom_list2 = Event.all(:conditions => ["event_type = ? and event_id = ?", "Дом-листовки", 2])
+        @events_dom_list3 = Event.all(:conditions => ["event_type = ? and event_id = ?", "Дом-листовки", 3])
+        
         @gmapdomlist = Gmaps4rails.build_markers(@houses) do |house, marker|
-        marker.lat house.latitude
-        marker.lng house.longitude
-        marker.picture({:url => "assets/24p-gray-home-icon.png", :width => 24, :height => 24 })
-        marker.infowindow "<p><b><a href=#{new_event_path}>Добавить новое событие</a>. Пока событий не было</b><br></p>"  
-        marker.title   "#{house.name}"
-        marker.json({cat: "House"})
+          marker.lat house.latitude
+          marker.lng house.longitude
+          marker.picture({:url => "assets/24p-gray-home-icon.png", :width => 24, :height => 24 })
+          marker.infowindow "<p><b><a href=#{new_event_path}>Добавить новое событие</a>. Пока событий не было</b><br></p>"  
+          marker.title   "#{house.name}"
+          marker.json({cat: "House"})
         
         
-        @events_dom_list.map.each do |event|
+          @events_dom_list.map.each do |event|
           if house.address == event.address
             if [house.n_flats, event.ItemCount].any?(&:nil?)
               marker.picture({:url => "assets/24p-red-home-icon.png", :width => 24, :height => 24 })
@@ -91,9 +94,6 @@ class MapController < ApplicationController
                   marker.picture({:url => "assets/24p-gray-home-icon.png", :width => 24, :height => 24 })
               end              
             end
-            
-
-            
             marker.infowindow "<p><b>#{event.name}</b><br>
                             Отв.: <b>#{event.Actor}</b><br>
                             Волна: <b>#{event.event_id}</b><br>
@@ -106,7 +106,91 @@ class MapController < ApplicationController
             marker.title   "#{event.name}"
             marker.json({cat: event.event_type})
           end
-         end            
+         end 
       end  
+
+        @gmapdomlist2 = Gmaps4rails.build_markers(@houses) do |house, marker|
+          marker.lat house.latitude
+          marker.lng house.longitude
+          marker.picture({:url => "assets/24p-gray-home-icon.png", :width => 24, :height => 24 })
+          marker.infowindow "<p><b><a href=#{new_event_path}>Добавить новое событие</a>. Пока событий не было</b><br></p>"  
+          marker.title   "#{house.name}"
+          marker.json({cat: "House"})
+        
+        
+          @events_dom_list2.map.each do |event|
+          if house.address == event.address
+            if [house.n_flats, event.ItemCount].any?(&:nil?)
+              marker.picture({:url => "assets/24p-red-home-icon.png", :width => 24, :height => 24 })
+            else
+              if event.ItemCount / house.n_flats.to_f >= 1              
+                  marker.picture({:url => "assets/24p-violet-home-icon.png", :width => 24, :height => 24 })
+              end
+              if event.ItemCount / house.n_flats.to_f < 1   
+                  if event.ItemCount / house.n_flats.to_f > 0.15
+                    marker.picture({:url => "assets/24p-yellow-home-icon.png", :width => 24, :height => 24 })
+                  end
+              end      
+              if event.ItemCount / house.n_flats.to_f <= 0.15   
+                  marker.picture({:url => "assets/24p-gray-home-icon.png", :width => 24, :height => 24 })
+              end              
+            end
+            marker.infowindow "<p><b>#{event.name}</b><br>
+                            Отв.: <b>#{event.Actor}</b><br>
+                            Волна: <b>#{event.event_id}</b><br>
+                            Кол-во листовок: <b>#{event.ItemCount}</b><br>
+                            Кол-во квартир: <b>#{house.n_flats}</b><br>
+                            Время проведения: <b>#{event.date}</b><br>
+                            Место проведения <b>#{event.address}</b><br>
+                            <a href=#{edit_event_path(event.id)}>Редактировать</a></p>"   
+            
+            marker.title   "#{event.name}"
+            marker.json({cat: event.event_type})
+          end
+         end 
+      end  
+      
+      
+        @gmapdomlist3 = Gmaps4rails.build_markers(@houses) do |house, marker|
+          marker.lat house.latitude
+          marker.lng house.longitude
+          marker.picture({:url => "assets/24p-gray-home-icon.png", :width => 24, :height => 24 })
+          marker.infowindow "<p><b><a href=#{new_event_path}>Добавить новое событие</a>. Пока событий не было</b><br></p>"  
+          marker.title   "#{house.name}"
+          marker.json({cat: "House"})
+        
+        
+          @events_dom_list3.map.each do |event|
+          if house.address == event.address
+            if [house.n_flats, event.ItemCount].any?(&:nil?)
+              marker.picture({:url => "assets/24p-red-home-icon.png", :width => 24, :height => 24 })
+            else
+              if event.ItemCount / house.n_flats.to_f >= 1              
+                  marker.picture({:url => "assets/24p-violet-home-icon.png", :width => 24, :height => 24 })
+              end
+              if event.ItemCount / house.n_flats.to_f < 1   
+                  if event.ItemCount / house.n_flats.to_f > 0.15
+                    marker.picture({:url => "assets/24p-yellow-home-icon.png", :width => 24, :height => 24 })
+                  end
+              end      
+              if event.ItemCount / house.n_flats.to_f <= 0.15   
+                  marker.picture({:url => "assets/24p-gray-home-icon.png", :width => 24, :height => 24 })
+              end              
+            end
+            marker.infowindow "<p><b>#{event.name}</b><br>
+                            Отв.: <b>#{event.Actor}</b><br>
+                            Волна: <b>#{event.event_id}</b><br>
+                            Кол-во листовок: <b>#{event.ItemCount}</b><br>
+                            Кол-во квартир: <b>#{house.n_flats}</b><br>
+                            Время проведения: <b>#{event.date}</b><br>
+                            Место проведения <b>#{event.address}</b><br>
+                            <a href=#{edit_event_path(event.id)}>Редактировать</a></p>"   
+            
+            marker.title   "#{event.name}"
+            marker.json({cat: event.event_type})
+          end
+         end 
+      end  
+  
   end
 end

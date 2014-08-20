@@ -15,9 +15,16 @@
     		<label>
     			<input type="checkbox" id="dvorbox"> Встречи во дворах
     		</label>
-    		<label>
-    			<input type="checkbox" id="houseagitbox"> Листовки в жилых домах
-    		</label>
+			<label class="checkbox-inline">
+			  <input type="checkbox" id="houseagitbox1" value="option1"> Волна 1
+			</label>
+			<label class="checkbox-inline">
+			  <input type="checkbox" id="houseagitbox2" value="option2"> Волна 2
+			</label>
+			<label class="checkbox-inline">
+			  <input type="checkbox" id="houseagitbox3" value="option3"> Волна 3
+			</label>    		
+
 		</div>
 
 		<div id="multi_markers" style='width: 100%; height: 700px;'></div>
@@ -47,14 +54,17 @@
 	  	document.getElementById('housesbox').checked = false;
 	    document.getElementById('cubebox').checked = true;
 	  	document.getElementById('dvorbox').checked = false;
-	  	document.getElementById('houseagitbox').checked = true;
+	  	document.getElementById('houseagitbox1').checked = false;
+	  	document.getElementById('houseagitbox2').checked = true;
+	  	document.getElementById('houseagitbox3').checked = false;
 	  	
 	  	var people = handler.addMarkers(<%=raw @gmappeople.to_json %>, {visible: false});
 	  	var houses = handler.addMarkers(<%=raw @gmaphouses.to_json %>, {visible: false});
 	  	var cubes = handler.addMarkers(<%=raw @gmapcubes.to_json %>, {visible: true});
 	  	var dvors = handler.addMarkers(<%=raw @gmapdvor.to_json %>, {visible: false});
-	  	var dom_list = handler.addMarkers(<%=raw @gmapdomlist.to_json %>, {visible: true});
-	  	
+	  	var dom_list = handler.addMarkers(<%=raw @gmapdomlist.to_json %>, {visible: false});
+	  	var dom_list2 = handler.addMarkers(<%=raw @gmapdomlist2.to_json %>, {visible: true});
+	  	var dom_list3 = handler.addMarkers(<%=raw @gmapdomlist3.to_json %>, {visible: false});
 	  	
 	  	var beskudnikovo = handler.addPolygons(
 	  		[
@@ -189,9 +199,18 @@
            boxclick(document.getElementById('dvorbox'), dvors);
         });
         
-		google.maps.event.addDomListener(document.getElementById('houseagitbox'), 'click', function(){
-           boxclick(document.getElementById('houseagitbox'), dom_list);
-        });        		
+		google.maps.event.addDomListener(document.getElementById('houseagitbox1'), 'click', function(){
+           boxclick(document.getElementById('houseagitbox1'), dom_list);
+        });      
+        
+        google.maps.event.addDomListener(document.getElementById('houseagitbox2'), 'click', function(){
+           boxclick(document.getElementById('houseagitbox2'), dom_list2);
+        });  
+        
+        google.maps.event.addDomListener(document.getElementById('houseagitbox3'), 'click', function(){
+           boxclick(document.getElementById('houseagitbox3'), dom_list3);
+        });  
+          		
 		});
 		
 			// == shows all markers of a particular category, and ensures the checkbox is checked ==
